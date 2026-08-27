@@ -1,0 +1,983 @@
+/* =========================================================
+   VIRGINIA MUSKIE
+   Main stylesheet
+   ========================================================= */
+
+:root {
+
+    --forest: #10251d;
+    --forest-light: #17372b;
+    --green: #2f6b4f;
+    --green-bright: #6fae77;
+
+    --water: #123e4a;
+    --water-light: #1c6170;
+
+    --cream: #f0eadc;
+    --paper: #e8e0cf;
+    --white: #ffffff;
+
+    --orange: #d8893b;
+    --orange-dark: #b96d27;
+
+    --black: #07110d;
+    --gray: #aeb8b2;
+
+    --max-width: 1200px;
+
+    --heading:
+        "Barlow Condensed",
+        sans-serif;
+
+    --body:
+        "Inter",
+        sans-serif;
+}
+
+
+/* ================= RESET ================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--forest);
+    font-family: var(--body);
+    line-height: 1.6;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    font: inherit;
+}
+
+
+/* ================= UTILITIES ================= */
+
+.container {
+    width: min(
+        calc(100% - 40px),
+        var(--max-width)
+    );
+
+    margin-inline: auto;
+}
+
+.section {
+    padding: 110px 0;
+}
+
+.eyebrow {
+    color: var(--orange);
+    font-family: var(--heading);
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+}
+
+.eyebrow.green {
+    color: var(--green);
+}
+
+.section-heading {
+    max-width: 760px;
+    margin-bottom: 55px;
+}
+
+.section-heading.centered {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.section-heading h2,
+.intro h2,
+.season-header h2,
+.conservation h2,
+.cta h2 {
+    font-family: var(--heading);
+    font-size: clamp(3.5rem, 8vw, 6.8rem);
+    line-height: 0.85;
+    text-transform: uppercase;
+    letter-spacing: -0.025em;
+}
+
+.section-heading h2 span,
+.intro h2 span,
+.season-header h2 span,
+.conservation h2 span,
+.cta h2 span {
+    color: var(--green);
+}
+
+.dark-section .section-heading h2 span {
+    color: var(--green-bright);
+}
+
+.section-heading > p:last-child {
+    color: var(--gray);
+    margin-top: 25px;
+    max-width: 620px;
+}
+
+
+/* ================= HEADER ================= */
+
+.site-header {
+    background: rgba(7, 17, 13, 0.96);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.nav-container {
+    min-height: 78px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    font-family: var(--heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    line-height: 0.9;
+}
+
+.logo strong {
+    display: block;
+    color: var(--green-bright);
+    font-size: 1.35rem;
+}
+
+.logo-fish {
+    font-size: 1.8rem;
+}
+
+.main-nav {
+    display: flex;
+    gap: 32px;
+}
+
+.main-nav a {
+    color: #dce5df;
+    font-family: var(--heading);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s ease;
+}
+
+.main-nav a:hover {
+    color: var(--orange);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(4, 15, 11, 0.92) 0%,
+            rgba(4, 15, 11, 0.7) 45%,
+            rgba(4, 15, 11, 0.4) 100%
+        ),
+        linear-gradient(
+            180deg,
+            #17372b,
+            #0c2a28 55%,
+            #07110d
+        );
+
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+/*
+  Decorative "river" shapes.
+  No external image dependency means the site works immediately
+  when uploaded to GitHub.
+*/
+
+.hero::before {
+    content: "";
+    position: absolute;
+
+    width: 850px;
+    height: 850px;
+
+    right: -180px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(59, 124, 125, 0.45),
+            rgba(15, 55, 53, 0.05) 65%
+        );
+
+    filter: blur(2px);
+}
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+    right: -10%;
+    bottom: -30%;
+
+    width: 100%;
+    height: 65%;
+
+    background:
+        repeating-linear-gradient(
+            -12deg,
+            rgba(67, 139, 137, 0.12) 0px,
+            rgba(67, 139, 137, 0.12) 2px,
+            transparent 2px,
+            transparent 32px
+        );
+
+    transform: rotate(-5deg);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 80px;
+}
+
+.hero h1 {
+    font-family: var(--heading);
+    font-size: clamp(4.8rem, 11vw, 10rem);
+    font-weight: 800;
+    line-height: 0.78;
+    letter-spacing: -0.04em;
+    max-width: 900px;
+}
+
+.hero h1 span {
+    color: var(--green-bright);
+    display: block;
+}
+
+.hero-text {
+    max-width: 600px;
+    color: #d6dfd9;
+    font-size: 1.15rem;
+    margin-top: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 35px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 14px 25px;
+
+    font-family: var(--heading);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: var(--orange);
+    color: var(--black);
+}
+
+.btn-primary:hover {
+    background: #eea355;
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+}
+
+.btn-outline:hover {
+    border-color: white;
+    background: rgba(255,255,255,0.08);
+}
+
+.hero-bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 3;
+
+    display: flex;
+    gap: 60px;
+
+    padding: 22px max(20px, calc((100vw - var(--max-width)) / 2));
+
+    background: rgba(4, 15, 11, 0.75);
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.hero-bottom > div {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
+.stat-number {
+    color: var(--orange);
+    font-family: var(--heading);
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #cbd5cf;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}
+
+
+/* ================= INTRO ================= */
+
+.intro {
+    background: var(--cream);
+}
+
+.intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.intro h2 {
+    font-size: clamp(3.8rem, 7vw, 6rem);
+}
+
+.intro-copy {
+    color: #53605a;
+    font-size: 1.1rem;
+}
+
+.intro-copy p + p {
+    margin-top: 22px;
+}
+
+
+/* ================= DARK SECTIONS ================= */
+
+.dark-section {
+    background: var(--forest);
+    color: white;
+}
+
+
+/* ================= WATERS ================= */
+
+.water-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.water-card {
+    min-height: 390px;
+
+    padding: 32px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1a4434,
+            #0d2921
+        );
+
+    border: 1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: relative;
+    overflow: hidden;
+
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.water-card::after {
+    content: "";
+
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    right: -80px;
+    bottom: -80px;
+
+    border-radius: 50%;
+
+    background: rgba(86, 158, 157, 0.15);
+}
+
+.water-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--green-bright);
+}
+
+.water-number {
+    color: var(--orange);
+    font-family: var(--heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.water-content {
+    position: relative;
+    z-index: 2;
+}
+
+.water-content h3 {
+    font-family: var(--heading);
+    font-size: 3rem;
+    line-height: 0.9;
+}
+
+.water-content p {
+    color: #b8c5bd;
+    margin-top: 18px;
+}
+
+.water-tag {
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: var(--green-bright);
+
+    font-family: var(--heading);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.notice {
+    margin-top: 35px;
+    padding: 25px;
+
+    border-left: 4px solid var(--orange);
+    background: rgba(255,255,255,0.04);
+}
+
+.notice strong {
+    color: var(--orange);
+    font-family: var(--heading);
+    letter-spacing: 0.08em;
+}
+
+.notice p {
+    color: #b8c5bd;
+    margin: 8px 0;
+}
+
+.notice a {
+    color: white;
+    font-weight: 700;
+}
+
+.notice a:hover {
+    color: var(--orange);
+}
+
+
+/* ================= TACTICS ================= */
+
+.tactics-section {
+    background: var(--paper);
+}
+
+.tactic-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+}
+
+.tactic-card {
+    background: white;
+    padding: 35px 28px;
+    border-bottom: 4px solid transparent;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.tactic-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--orange);
+}
+
+.tactic-icon {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+}
+
+.tactic-card h3 {
+    font-family: var(--heading);
+    font-size: 2rem;
+}
+
+.tactic-card p {
+    color: #647069;
+    margin-top: 12px;
+}
+
+
+/* ================= SEASONS ================= */
+
+.season-section {
+    background: var(--cream);
+}
+
+.season-header {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    gap: 80px;
+    align-items: end;
+
+    margin-bottom: 60px;
+}
+
+.season-header > p {
+    color: #647069;
+}
+
+.season-list {
+    border-top: 1px solid #c9c1b1;
+}
+
+.season-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 60px;
+
+    padding: 35px 0;
+
+    border-bottom: 1px solid #c9c1b1;
+}
+
+.season-row.featured {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(47,107,79,0.08),
+            transparent
+        );
+
+    padding-left: 20px;
+    border-left: 5px solid var(--orange);
+}
+
+.month {
+    color: var(--green);
+    font-family: var(--heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.season-info h3 {
+    font-family: var(--heading);
+    font-size: 2rem;
+}
+
+.season-info p {
+    max-width: 700px;
+    color: #66716b;
+    margin-top: 7px;
+}
+
+
+/* ================= GEAR ================= */
+
+.gear-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr;
+    gap: 70px;
+}
+
+.gear-item {
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    gap: 20px;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.gear-item > span {
+    color: var(--orange);
+    font-family: var(--heading);
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.gear-item h3 {
+    font-family: var(--heading);
+    font-size: 2rem;
+}
+
+.gear-item p {
+    color: #aebbb4;
+    margin-top: 5px;
+}
+
+.gear-tip {
+    align-self: start;
+
+    padding: 40px;
+
+    background: var(--green);
+    color: white;
+}
+
+.tip-label {
+    color: #d9ead7;
+    font-family: var(--heading);
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.gear-tip blockquote {
+    margin: 25px 0;
+
+    font-family: var(--heading);
+    font-size: 2.8rem;
+    line-height: 0.95;
+}
+
+.gear-tip p {
+    color: #d7e4da;
+}
+
+
+/* ================= CONSERVATION ================= */
+
+.conservation {
+    padding: 110px 0;
+
+    background:
+        linear-gradient(
+            120deg,
+            #dfe9dc,
+            #f0eadc
+        );
+}
+
+.conservation-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.conservation h2 {
+    font-size: clamp(3.5rem, 7vw, 6rem);
+}
+
+.conservation-grid > div:last-child > p {
+    color: #58635d;
+    font-size: 1.1rem;
+}
+
+.conservation-list {
+    list-style: none;
+    margin-top: 30px;
+}
+
+.conservation-list li {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid rgba(16,37,29,0.15);
+
+    color: #34443b;
+}
+
+.conservation-list span {
+    color: var(--orange);
+    font-family: var(--heading);
+    font-weight: 700;
+}
+
+
+/* ================= CTA ================= */
+
+.cta {
+    padding: 130px 0;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #10251d,
+            #0b3435
+        );
+
+    color: white;
+}
+
+.cta h2 {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.cta h2 span {
+    color: var(--green-bright);
+}
+
+.cta > .container > p:not(.eyebrow) {
+    color: #b7c5bd;
+    margin: 25px 0 35px;
+}
+
+
+/* ================= FOOTER ================= */
+
+footer {
+    background: #050c09;
+    color: white;
+    padding-top: 55px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.footer-brand {
+    max-width: 360px;
+}
+
+.footer-brand p {
+    color: #87938d;
+    margin-top: 18px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    align-content: start;
+}
+
+.footer-links a {
+    color: #bdc8c2;
+    font-family: var(--heading);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.footer-links a:hover {
+    color: var(--orange);
+}
+
+.footer-bottom {
+    margin-top: 55px;
+    padding: 20px 0;
+
+    border-top: 1px solid rgba(255,255,255,0.08);
+
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    color: #69756f;
+    font-size: 0.8rem;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 850px) {
+
+    .section {
+        padding: 80px 0;
+    }
+
+    .main-nav {
+        display: none;
+
+        position: absolute;
+        top: 78px;
+        left: 0;
+        right: 0;
+
+        padding: 20px;
+
+        flex-direction: column;
+        gap: 20px;
+
+        background: #07110d;
+        border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .main-nav.open {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .hero {
+        min-height: 850px;
+    }
+
+    .hero h1 {
+        font-size: clamp(4rem, 18vw, 7rem);
+    }
+
+    .hero-bottom {
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .intro-grid,
+    .season-header,
+    .conservation-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .water-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tactic-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gear-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .season-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 520px) {
+
+    .container {
+        width: min(
+            calc(100% - 28px),
+            var(--max-width)
+        );
+    }
+
+    .tactic-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        text-align: center;
+    }
+
+    .hero-bottom {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .hero-bottom > div:last-child {
+        grid-column: 1 / -1;
+    }
+
+    .stat-number {
+        font-size: 1.6rem;
+    }
+
+    .gear-tip {
+        padding: 28px;
+    }
+
+    .gear-tip blockquote {
+        font-size: 2.3rem;
+    }
+}
